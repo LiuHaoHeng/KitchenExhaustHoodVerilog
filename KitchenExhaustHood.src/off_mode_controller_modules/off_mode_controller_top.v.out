@@ -1,0 +1,309 @@
+#! /c/Source/iverilog-install/bin/vvp
+:ivl_version "12.0 (devel)" "(s20150603-1539-g2693dd32b)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision - 12;
+:vpi_module "C:\SELFPR~1\iverilog\lib\ivl\system.vpi";
+:vpi_module "C:\SELFPR~1\iverilog\lib\ivl\vhdl_sys.vpi";
+:vpi_module "C:\SELFPR~1\iverilog\lib\ivl\vhdl_textio.vpi";
+:vpi_module "C:\SELFPR~1\iverilog\lib\ivl\v2005_math.vpi";
+:vpi_module "C:\SELFPR~1\iverilog\lib\ivl\va_math.vpi";
+S_00000249caf53250 .scope module, "off_mode_controller_top" "off_mode_controller_top" 2 7;
+ .timescale -9 -12;
+    .port_info 0 /INPUT 1 "clk";
+    .port_info 1 /INPUT 1 "rstn";
+    .port_info 2 /INPUT 8 "current_mode";
+    .port_info 3 /INPUT 1 "normal_signal";
+    .port_info 4 /INPUT 1 "left_gesture_signal";
+    .port_info 5 /INPUT 1 "right_gesture_signal";
+    .port_info 6 /OUTPUT 1 "off_mode_toggle";
+o00000249caf5cf98 .functor BUFZ 1, C4<z>; HiZ drive
+v00000249cafab660_0 .net "clk", 0 0, o00000249caf5cf98;  0 drivers
+o00000249caf5d568 .functor BUFZ 8, C4<zzzzzzzz>; HiZ drive
+v00000249cafab520_0 .net "current_mode", 7 0, o00000249caf5d568;  0 drivers
+o00000249caf5d2c8 .functor BUFZ 1, C4<z>; HiZ drive
+v00000249cafab7a0_0 .net "left_gesture_signal", 0 0, o00000249caf5d2c8;  0 drivers
+o00000249caf5d478 .functor BUFZ 1, C4<z>; HiZ drive
+v00000249cafab700_0 .net "normal_signal", 0 0, o00000249caf5d478;  0 drivers
+v00000249cafaba20_0 .net "off_mode_controller_gesture_toggle", 0 0, v00000249cafab340_0;  1 drivers
+v00000249cafab840_0 .net "off_mode_controller_normal_toggle", 0 0, v00000249cafab480_0;  1 drivers
+v00000249cafabac0_0 .var "off_mode_toggle", 0 0;
+o00000249caf5d0b8 .functor BUFZ 1, C4<z>; HiZ drive
+v00000249cafabb60_0 .net "right_gesture_signal", 0 0, o00000249caf5d0b8;  0 drivers
+o00000249caf5d058 .functor BUFZ 1, C4<z>; HiZ drive
+v00000249cafabc00_0 .net "rstn", 0 0, o00000249caf5d058;  0 drivers
+S_00000249caf533e0 .scope module, "off_mode_controller_gesture_inst" "off_mode_controller_gesture" 2 27, 3 4 0, S_00000249caf53250;
+ .timescale -12 -12;
+    .port_info 0 /INPUT 1 "clk";
+    .port_info 1 /INPUT 1 "rstn";
+    .port_info 2 /INPUT 1 "first_toggle_signal";
+    .port_info 3 /INPUT 1 "second_toggle_signal";
+    .port_info 4 /INPUT 32 "counter_time";
+    .port_info 5 /OUTPUT 1 "off_mode_controller_gesture_toggle";
+v00000249caf13120_0 .net "clk", 0 0, o00000249caf5cf98;  alias, 0 drivers
+v00000249caf4bd00_0 .net "counter_reg", 31 0, v00000249cb01c4a0_0;  1 drivers
+L_00000249cafac088 .functor BUFT 1, C4<00000000000000000000000000000101>, C4<0>, C4<0>, C4<0>;
+v00000249caf4bda0_0 .net "counter_time", 31 0, L_00000249cafac088;  1 drivers
+v00000249caf4be40_0 .net "done", 0 0, v00000249cb01c220_0;  1 drivers
+v00000249caf4bee0_0 .net "first_toggle_signal", 0 0, o00000249caf5d0b8;  alias, 0 drivers
+v00000249cafab8e0_0 .var "load_value", 31 0;
+v00000249cafab340_0 .var "off_mode_controller_gesture_toggle", 0 0;
+v00000249cafabf20_0 .net "rstn", 0 0, o00000249caf5d058;  alias, 0 drivers
+v00000249cafab980_0 .net "second_toggle_signal", 0 0, o00000249caf5d2c8;  alias, 0 drivers
+S_00000249caf12db0 .scope module, "gesture_counter_timer" "countdown_timer" 3 17, 4 4 0, S_00000249caf533e0;
+ .timescale -9 -12;
+    .port_info 0 /INPUT 1 "clk";
+    .port_info 1 /INPUT 1 "rstn";
+    .port_info 2 /INPUT 1 "start";
+    .port_info 3 /INPUT 32 "load_value";
+    .port_info 4 /OUTPUT 32 "count_reg";
+    .port_info 5 /OUTPUT 1 "done";
+v00000249caf3c460_0 .net "clk", 0 0, o00000249caf5cf98;  alias, 0 drivers
+v00000249cb01c4a0_0 .var "count_reg", 31 0;
+v00000249cb01c220_0 .var "done", 0 0;
+v00000249cb01c2c0_0 .net "load_value", 31 0, v00000249cafab8e0_0;  1 drivers
+v00000249caf53570_0 .net "rstn", 0 0, o00000249caf5d058;  alias, 0 drivers
+v00000249caf53610_0 .var "sec_counter", 31 0;
+v00000249caf12f40_0 .net "start", 0 0, o00000249caf5d0b8;  alias, 0 drivers
+v00000249caf12fe0_0 .var "start_d", 0 0;
+v00000249caf13080_0 .var "started", 0 0;
+E_00000249caf3c9b0/0 .event negedge, v00000249caf53570_0;
+E_00000249caf3c9b0/1 .event posedge, v00000249caf3c460_0;
+E_00000249caf3c9b0 .event/or E_00000249caf3c9b0/0, E_00000249caf3c9b0/1;
+S_00000249caf4bf80 .scope module, "off_mode_controller_normal_inst" "off_mode_controller_normal" 2 20, 5 4 0, S_00000249caf53250;
+ .timescale -12 -12;
+    .port_info 0 /INPUT 1 "clk";
+    .port_info 1 /INPUT 1 "rstn";
+    .port_info 2 /INPUT 1 "toggle_signal";
+    .port_info 3 /OUTPUT 1 "off_mode_controller_normal_toggle";
+v00000249cafab2a0_0 .net "clk", 0 0, o00000249caf5cf98;  alias, 0 drivers
+v00000249cafab3e0_0 .var "counter_reg", 31 0;
+v00000249cafab480_0 .var "off_mode_controller_normal_toggle", 0 0;
+v00000249cafab5c0_0 .net "rstn", 0 0, o00000249caf5d058;  alias, 0 drivers
+v00000249cafabfc0_0 .net "toggle_signal", 0 0, o00000249caf5d478;  alias, 0 drivers
+    .scope S_00000249caf4bf80;
+T_0 ;
+    %pushi/vec4 0, 0, 32;
+    %store/vec4 v00000249cafab3e0_0, 0, 32;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v00000249cafab480_0, 0, 1;
+    %end;
+    .thread T_0;
+    .scope S_00000249caf4bf80;
+T_1 ;
+    %wait E_00000249caf3c9b0;
+    %load/vec4 v00000249cafab5c0_0;
+    %nor/r;
+    %flag_set/vec4 8;
+    %jmp/0xz  T_1.0, 8;
+    %pushi/vec4 0, 0, 32;
+    %store/vec4 v00000249cafab3e0_0, 0, 32;
+    %pushi/vec4 0, 0, 1;
+    %assign/vec4 v00000249cafab480_0, 0;
+    %jmp T_1.1;
+T_1.0 ;
+    %load/vec4 v00000249cafabfc0_0;
+    %flag_set/vec4 8;
+    %jmp/0xz  T_1.2, 8;
+    %load/vec4 v00000249cafab3e0_0;
+    %addi 1, 0, 32;
+    %assign/vec4 v00000249cafab3e0_0, 0;
+    %jmp T_1.3;
+T_1.2 ;
+    %pushi/vec4 0, 0, 32;
+    %assign/vec4 v00000249cafab3e0_0, 0;
+T_1.3 ;
+    %pushi/real 1200000000, 4094; load=3.00000e+08
+    %load/vec4 v00000249cafab3e0_0;
+    %cvt/rv;
+    %cmp/wr;
+    %flag_or 5, 4;
+    %jmp/0xz  T_1.4, 5;
+    %pushi/vec4 1, 0, 1;
+    %assign/vec4 v00000249cafab480_0, 0;
+    %jmp T_1.5;
+T_1.4 ;
+    %pushi/vec4 0, 0, 1;
+    %assign/vec4 v00000249cafab480_0, 0;
+T_1.5 ;
+T_1.1 ;
+    %jmp T_1;
+    .thread T_1;
+    .scope S_00000249caf12db0;
+T_2 ;
+    %wait E_00000249caf3c9b0;
+    %load/vec4 v00000249caf53570_0;
+    %nor/r;
+    %flag_set/vec4 8;
+    %jmp/0xz  T_2.0, 8;
+    %pushi/vec4 0, 0, 1;
+    %assign/vec4 v00000249caf12fe0_0, 0;
+    %pushi/vec4 0, 0, 32;
+    %assign/vec4 v00000249cb01c4a0_0, 0;
+    %pushi/vec4 0, 0, 1;
+    %assign/vec4 v00000249cb01c220_0, 0;
+    %pushi/vec4 0, 0, 1;
+    %assign/vec4 v00000249caf13080_0, 0;
+    %pushi/vec4 0, 0, 32;
+    %assign/vec4 v00000249caf53610_0, 0;
+    %jmp T_2.1;
+T_2.0 ;
+    %load/vec4 v00000249caf12f40_0;
+    %assign/vec4 v00000249caf12fe0_0, 0;
+    %load/vec4 v00000249caf12f40_0;
+    %flag_set/vec4 9;
+    %flag_get/vec4 9;
+    %jmp/0 T_2.4, 9;
+    %load/vec4 v00000249caf12fe0_0;
+    %inv;
+    %and;
+T_2.4;
+    %flag_set/vec4 8;
+    %jmp/0xz  T_2.2, 8;
+    %load/vec4 v00000249cb01c2c0_0;
+    %assign/vec4 v00000249cb01c4a0_0, 0;
+    %pushi/vec4 0, 0, 1;
+    %assign/vec4 v00000249cb01c220_0, 0;
+    %pushi/vec4 1, 0, 1;
+    %assign/vec4 v00000249caf13080_0, 0;
+    %pushi/vec4 0, 0, 32;
+    %assign/vec4 v00000249caf53610_0, 0;
+    %jmp T_2.3;
+T_2.2 ;
+    %load/vec4 v00000249caf13080_0;
+    %flag_set/vec4 8;
+    %jmp/0xz  T_2.5, 8;
+    %load/vec4 v00000249cb01c4a0_0;
+    %cmpi/u 0, 0, 32;
+    %flag_or 5, 4; GT is !LE
+    %flag_inv 5;
+    %jmp/0xz  T_2.7, 5;
+    %load/vec4 v00000249caf53610_0;
+    %cvt/rv;
+    %pushi/real 1599999984, 4092; load=1.00000e+08
+    %cmp/wr;
+    %flag_get/vec4 4;
+    %flag_set/vec4 8;
+    %jmp/0xz  T_2.9, 8;
+    %pushi/vec4 0, 0, 32;
+    %assign/vec4 v00000249caf53610_0, 0;
+    %load/vec4 v00000249cb01c4a0_0;
+    %subi 1, 0, 32;
+    %assign/vec4 v00000249cb01c4a0_0, 0;
+    %load/vec4 v00000249cb01c4a0_0;
+    %cmpi/e 1, 0, 32;
+    %jmp/0xz  T_2.11, 4;
+    %pushi/vec4 1, 0, 1;
+    %assign/vec4 v00000249cb01c220_0, 0;
+    %pushi/vec4 0, 0, 1;
+    %assign/vec4 v00000249caf13080_0, 0;
+T_2.11 ;
+    %jmp T_2.10;
+T_2.9 ;
+    %load/vec4 v00000249caf53610_0;
+    %addi 1, 0, 32;
+    %assign/vec4 v00000249caf53610_0, 0;
+T_2.10 ;
+    %jmp T_2.8;
+T_2.7 ;
+    %pushi/vec4 0, 0, 1;
+    %assign/vec4 v00000249caf13080_0, 0;
+T_2.8 ;
+T_2.5 ;
+T_2.3 ;
+T_2.1 ;
+    %jmp T_2;
+    .thread T_2;
+    .scope S_00000249caf533e0;
+T_3 ;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v00000249cafab340_0, 0, 1;
+    %end;
+    .thread T_3;
+    .scope S_00000249caf533e0;
+T_4 ;
+    %wait E_00000249caf3c9b0;
+    %load/vec4 v00000249cafabf20_0;
+    %nor/r;
+    %flag_set/vec4 8;
+    %jmp/0xz  T_4.0, 8;
+    %pushi/vec4 0, 0, 1;
+    %assign/vec4 v00000249cafab340_0, 0;
+    %jmp T_4.1;
+T_4.0 ;
+    %load/vec4 v00000249caf4be40_0;
+    %flag_set/vec4 8;
+    %jmp/0xz  T_4.2, 8;
+    %jmp T_4.3;
+T_4.2 ;
+    %load/vec4 v00000249cafab980_0;
+    %flag_set/vec4 8;
+    %jmp/0xz  T_4.4, 8;
+    %pushi/vec4 1, 0, 1;
+    %assign/vec4 v00000249cafab340_0, 0;
+    %jmp T_4.5;
+T_4.4 ;
+    %pushi/vec4 0, 0, 1;
+    %assign/vec4 v00000249cafab340_0, 0;
+T_4.5 ;
+T_4.3 ;
+T_4.1 ;
+    %jmp T_4;
+    .thread T_4;
+    .scope S_00000249caf53250;
+T_5 ;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v00000249cafabac0_0, 0, 1;
+    %end;
+    .thread T_5;
+    .scope S_00000249caf53250;
+T_6 ;
+    %wait E_00000249caf3c9b0;
+    %load/vec4 v00000249cafabc00_0;
+    %nor/r;
+    %flag_set/vec4 8;
+    %jmp/0xz  T_6.0, 8;
+    %pushi/vec4 0, 0, 1;
+    %assign/vec4 v00000249cafabac0_0, 0;
+    %jmp T_6.1;
+T_6.0 ;
+    %load/vec4 v00000249cafab520_0;
+    %dup/vec4;
+    %pushi/vec4 1, 0, 8;
+    %cmp/u;
+    %jmp/1 T_6.2, 6;
+    %load/vec4 v00000249cafab840_0;
+    %flag_set/vec4 8;
+    %jmp/0xz  T_6.5, 8;
+    %pushi/vec4 1, 0, 1;
+    %assign/vec4 v00000249cafabac0_0, 0;
+    %jmp T_6.6;
+T_6.5 ;
+    %load/vec4 v00000249cafaba20_0;
+    %flag_set/vec4 8;
+    %jmp/0xz  T_6.7, 8;
+    %pushi/vec4 1, 0, 1;
+    %assign/vec4 v00000249cafabac0_0, 0;
+    %jmp T_6.8;
+T_6.7 ;
+    %pushi/vec4 0, 0, 1;
+    %assign/vec4 v00000249cafabac0_0, 0;
+T_6.8 ;
+T_6.6 ;
+    %jmp T_6.4;
+T_6.2 ;
+    %pushi/vec4 0, 0, 1;
+    %assign/vec4 v00000249cafabac0_0, 0;
+    %jmp T_6.4;
+T_6.4 ;
+    %pop/vec4 1;
+T_6.1 ;
+    %jmp T_6;
+    .thread T_6;
+# The file index is used to find the file name in the following table.
+:file_names 6;
+    "N/A";
+    "<interactive>";
+    "off_mode_controller_top.v";
+    "./../off_mode_controller_modules/off_mode_controller_gesture.v";
+    "./../util_modules/countdown_timer.v";
+    "./../off_mode_controller_modules/off_mode_controller_normal.v";
